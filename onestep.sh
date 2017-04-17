@@ -20,4 +20,4 @@ rm /root/kcptun/packup.zip
 chmod +x /root/kcptun/*.sh
 sh /root/kcptun/start.sh
 chmod +x /etc/rc.d/rc.local && echo "sh /root/kcptun/start.sh" >> /etc/rc.d/rc.local
-echo "恭喜，安装完成"
+echo "恭喜，ShadowsocksR+Kcptun安装已完成"
