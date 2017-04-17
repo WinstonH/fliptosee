@@ -60,3 +60,4 @@ echo "Kcptun started."" >> /root/kcptun/restart.sh
 chmod +x /root/kcptun/*.sh
 sh /root/kcptun/start.sh
 chmod +x /etc/rc.d/rc.local && echo "sh /root/kcptun/start.sh" >> /etc/rc.d/rc.local
+echo "恭喜，安装完成"
