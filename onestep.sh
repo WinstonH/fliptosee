@@ -1,6 +1,7 @@
 #!/bin/bash
 yum -y install wget
 yum -y install git
+yum install -y unzip zip
 git clone -b manyuser https://github.com/shadowsocksr/shadowsocksr.git
 cd /root/shadowsocksr/shadowsocks
 python server.py -p 443 -k kcpbeta -m aes-256-cfb -O origin -o plain -d start
