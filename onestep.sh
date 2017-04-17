@@ -13,7 +13,9 @@ tar -zxvf kcptun-linux-amd64-20161222.tar.gz
 rm /root/kcptun/start.sh
 rm /root/kcptun/stop.sh
 rm /root/kcptun/restart.sh
-wget --no-check-certificate 
+wget --no-check-certificate https://github.com/WinstonH/fliptosee/raw/master/order.zip
+unzip order.zip
+rm /root/kcptun/order.zip
 # 创建Kcptun配置
 touch /root/kcptun/server-config.json
 echo "" > /root/kcptun/server-config.json
@@ -39,22 +41,6 @@ echo "{
     "keepalive": 10,
     "log": "/root/kcptun/kcptun.log"
 }" >> /root/kcptun/server-config.json
-# 创建 stop.sh
-touch /root/kcptun/stop.sh
-echo "" > /root/kcptun/stop.sh
-echo "PID=`ps -ef | grep server_linux_amd64 | grep -v grep | awk '{print $2}'`
-if [ "" != "$PID" ]; then
- echo "killing $PID"
- kill -9 $PID
-fi" >> /root/kcptun/stop.sh
-# 创建 restart.sh
-touch /root/kcptun/stop.sh
-echo "" > /root/kcptun/restart.sh
-echo "cd /root/kcptun/
-echo "Stopping Kcptun..."
-bash stop.sh
-bash start.sh
-echo "Kcptun started."" >> /root/kcptun/restart.sh
 chmod +x /root/kcptun/*.sh
 sh /root/kcptun/start.sh
 chmod +x /etc/rc.d/rc.local && echo "sh /root/kcptun/start.sh" >> /etc/rc.d/rc.local
