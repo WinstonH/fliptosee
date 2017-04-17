@@ -7,15 +7,13 @@ python server.py -p 443 -k kcpbeta -m aes-256-cfb -O origin -o plain -d start
 # Now install Kcptun
 mkdir /root/kcptun
 cd /root/kcptun
-wget https://github.com/xtaci/kcptun/releases/download/v20161222/kcptun-linux-amd64-20161222.tar.gz
+wget --no-check-certificate  https://github.com/xtaci/kcptun/releases/download/v20161222/kcptun-linux-amd64-20161222.tar.gz
 tar -zxvf kcptun-linux-amd64-20161222.tar.gz
-# 创建 start.sh
-touch /root/kcptun/start.sh
-echo "" > /root/kcptun/start.sh
-echo "
-cd /root/kcptun/
-./server_linux_amd64 -c /root/kcptun/server-config.json 2>&1 &
-echo "Kcptun started."" >> /root/kcptun/start.sh
+# 创建 执行脚本
+rm /root/kcptun/start.sh
+rm /root/kcptun/stop.sh
+rm /root/kcptun/restart.sh
+wget --no-check-certificate 
 # 创建Kcptun配置
 touch /root/kcptun/server-config.json
 echo "" > /root/kcptun/server-config.json
