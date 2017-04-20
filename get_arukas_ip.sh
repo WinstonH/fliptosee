@@ -8,3 +8,4 @@ rm /root/sakura.txt
 cat /root/sakura_temp.txt | awk -F '"' ' {print $1}' >> /root/sakura_ip.txt
 rm /root/sakura_temp.txt
 cat /root/sakura_ip.txt
+echo "Successful get the port!"
