@@ -13,7 +13,7 @@ rm /root/sakura_ip.txt /root/sakura_ssh_port.txt
 unset IP PORT COM
 cat command.txt
 # step5 replace the command
-sed -i '5d' /root/autologin.sh
-sed -i "5 s/^/$(echo $(cat command.txt))\n/" /root/autologin.sh
+sed -i '5d' /root/autologin_arukas.sh
+sed -i "5 s/^/$(echo $(cat command.txt))\n/" /root/autologin_arukas.sh
 rm  command.txt
-sh autologin.sh
+sh autologin_arukas.sh
