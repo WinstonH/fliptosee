@@ -8,7 +8,12 @@ PORT=`cat /root/sakura_port.txt`
 # step3 creat a new command line
 COM="spawn ssh -p "${PORT}" root@"${IP}
 echo "$COM" >> command.txt
-# step4 reset all
+# step4 reset all var
 rm /root/sakura_ip.txt /root/sakura_port.txt
 unset IP PORT COM
 cat command.txt
+# step5 replace the command
+sed -i '5d' /root/autologin.sh
+sed -i "5 s/^/$(echo $(cat command.txt))\n/" /root/autologin.sh
+rm  command.txt
+sh autologin.sh
