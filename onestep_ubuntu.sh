@@ -1,3 +1,4 @@
+#!/bin/bash
 apt-get -y install wget
 apt-get -y install git
 apt-get install -y unzip zip
