@@ -1,3 +1,4 @@
+#!/bin/bash
 curl -n https://app.arukas.io/api/containers \
   -H "Content-Type: application/vnd.api+json"  \
   -H "Accept: application/vnd.api+json" >> /root/sakura_temp.txt
