@@ -1,7 +1,7 @@
 {
     "localaddr": ":443",
     "remoteaddr": "10.10.10.10:4000",
-    "key": "it's a secret",
+    "key": "kcptest",
     "crypt": "aes-192",
     "mode": "fast2",
     "conn": 1,
