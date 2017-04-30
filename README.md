@@ -7,6 +7,10 @@ SSR 默认参数： \
 加密方式：aes-256-cfb \
 协议：origin \
 混淆：plain
+## 如果ssr不幸崩溃，无法连接
+登录服务器，复制粘贴，执行如下命令：
+reboot #重启
+python /root/shadowsocksr/shadowsocksserver.py -p 443 -k kcpbeta -m aes-256-cfb -O origin -o plain -d start 
 ## For centOS
 yum -y install wget \
 wget --no-check-certificate https://raw.githubusercontent.com/WinstonH/fliptosee/master/onestep_centos.sh && chmod +x /root/onestep.sh && sh onestep.sh
