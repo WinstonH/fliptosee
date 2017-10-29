@@ -5,7 +5,7 @@ apt-get update
 export LANG=zh_CN.UTF-8
 apt-get update
 apt-get install -y xfce4 xfce4-goodies 
-apt-get install -y supervisor python ttf-wqy-microhei
+apt-get install -y supervisor python ttf-wqy-microhei autocutsel
 apt-get install -y tightvncserver 
 apt-get clean
 
@@ -25,14 +25,22 @@ cat /root/.vnc/xstartup
 cd /root
 /usr/bin/vncserver :1 -geometry 1280x800 -depth 24
 
+git clone https://github.com/shadowsocksr-rm/shadowsocksr.git
 git clone https://github.com/novnc/noVNC.git /noVNC
 ln -s /noVNC/vnc.html /noVNC/index.html
 touch /etc/supervisor/conf.d/vnc.conf
+touch /etc/supervisor/conf.d/ssr.conf
 echo "[program:noVNC]
 command=/noVNC/utils/launch.sh --vnc localhost:5901 --listen 3000
 user=root
 autorestart=true
 priority=200" >> /etc/supervisor/conf.d/vnc.conf
+echo "[program:noVNC]
+command=python server.py
+directory=/root/shadowsocksr/shadowsocks
+user=root
+autorestart=true
+priority=200" >> /etc/supervisor/conf.d/ssr.conf
 
 service supervisor restart
 apt-get clean
